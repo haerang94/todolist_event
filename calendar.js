@@ -4,14 +4,13 @@ const dropDown = document.getElementById("month");
 const date = document.getElementById("date");
 
 const today = new Date();
-var dd = today.getDate();
-var mm = today.getMonth() + 1;
-var yyyy = today.getFullYear();
+let dd = today.getDate();
+let mm = today.getMonth() + 1;
+let yyyy = today.getFullYear();
 yearContent.textContent = yyyy;
 monthContent.textContent = `${mm}월`;
 let year = yyyy;
 let month = mm;
-console.log(dd);
 
 const leap = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 const plain = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
@@ -61,16 +60,11 @@ const lastDay = (year, month) => {
   }
   return day;
 };
-console.log(
-  yearContent.textContent,
-  monthContent.textContent.substring(0, monthContent.textContent.length - 1)
-);
 
 const insertDays = () => {
   let firstDay = untilLastMonth(year, month) % 7;
   let last = lastDay(year, month);
   let template = "";
-  console.log(untilLastMonth(year, month), firstDay);
   for (let i = 0; i <= firstDay; i++) {
     template += `<div class="day"></div>`;
   }
@@ -82,8 +76,16 @@ const insertDays = () => {
       template += `<div class="day">${i}</div>`;
     }
   }
-  console.log(date, template);
   date.innerHTML = template;
 };
 
 insertDays();
+
+dropDown.addEventListener("click", (e) => {
+  if (e.target.classList.contains("dropdown-list__item")) {
+    const newMonth = e.target.textContent;
+    month = newMonth.substring(0, newMonth.length - 1);
+    monthContent.textContent = `${newMonth}`;
+    insertDays();
+  }
+});
