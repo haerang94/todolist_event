@@ -1,15 +1,29 @@
-
-
+:root {
+  --lightCarrot: #ffb26b;
+}
 header {
   width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
   height: 20px;
-  /* background: yellow; */
-  justify-content: space-evenly;
-  padding-bottom: 10px;
   border-bottom: 1.5px solid #dddddd;
+  margin: 10px 0;
+  justify-items: center;
+  gap: 2px;
 }
 
-header > div {
-  /* background: pink; */
+#date {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  height: 80%;
+  gap: 2px;
+}
+
+.day {
+  padding: 2px;
+}
+
+.today {
+  background: var(--lightCarrot);
+  border-radius: 10px;
 }
