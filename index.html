@@ -4,12 +4,47 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="common.css" />
     <link rel="stylesheet" href="./calendar.css" />
     <title>Todolist Project</title>
   </head>
   <body>
     <section class="container">
       <div id="calendar-wrapper" class="wrapper">
+        <div id="dropdown-wrapper">
+          <div class="year-wrapper">
+            <i class="fas fa-chevron-left"></i>
+            <span>2021</span>
+            <i class="fas fa-chevron-right"></i>
+          </div>
+          <div class="dropdown">
+            <div class="dropdown-select">
+              <span class="select">Selected item</span>
+              <i class="fa fa-caret-down icon"></i>
+            </div>
+            <div class="dropdown-list" id="month">
+              <div class="dropdown-list__item">1월</div>
+              <div class="dropdown-list__item">2월</div>
+              <div class="dropdown-list__item">3월</div>
+              <div class="dropdown-list__item">4월</div>
+              <div class="dropdown-list__item">5월</div>
+              <div class="dropdown-list__item">6월</div>
+              <div class="dropdown-list__item">7월</div>
+              <div class="dropdown-list__item">8월</div>
+              <div class="dropdown-list__item">9월</div>
+              <div class="dropdown-list__item">10월</div>
+              <div class="dropdown-list__item">11월</div>
+              <div class="dropdown-list__item">12월</div>
+            </div>
+          </div>
+        </div>
         <header>
           <div>Sun</div>
           <div>Mon</div>
