@@ -1,0 +1,38 @@
+body {
+  background: #09015f;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  /* background: pink; */
+}
+
+.wrapper {
+  background: #fff;
+  border-radius: 20px;
+  border: 1px solid black;
+  height: 400px;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  height: 20px;
+  /* background: yellow; */
+  justify-content: space-evenly;
+  padding-bottom: 10px;
+  border-bottom: 1px solid black;
+}
+
+header > div {
+  /* background: pink; */
+}
