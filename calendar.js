@@ -1,11 +1,12 @@
-//  todo: year바꾸기 구현
 // todolist 추가 삭제 먼저 구현
 
 let yearContent = document.getElementById("year");
 const monthContent = document.querySelector(".select");
 const dropDown = document.getElementById("month");
+const leftBtn = document.querySelector(".fa-chevron-left");
+const rightBtn = document.querySelector(".fa-chevron-right");
 const date = document.getElementById("date");
-
+// 오늘 날짜 yyyy,mm,dd
 const today = new Date();
 let dd = today.getDate();
 let mm = today.getMonth() + 1;
@@ -19,13 +20,9 @@ const leap = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 const plain = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 //  윤년인지 체크
-const isLeapYear = () => {
+const isLeapYear = (year) => {
   // 윤년인 경우 true, 평년인 경우 false
-  if (year % 400 == 0) {
-    return true;
-  } else if (year % 100) {
-    return false;
-  } else if (year % 4) {
+  if ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0) {
     return true;
   }
   return false;
@@ -73,7 +70,7 @@ const insertDays = () => {
   }
 
   for (let i = 1; i <= last; i++) {
-    if (i === dd && month == mm) {
+    if (i === dd && month == mm && year == yyyy) {
       template += `<div class="day today">${i}</div>`;
     } else {
       template += `<div class="day">${i}</div>`;
@@ -87,8 +84,20 @@ insertDays();
 dropDown.addEventListener("click", (e) => {
   if (e.target.classList.contains("dropdown-list__item")) {
     const newMonth = e.target.textContent;
-    month = newMonth.substring(0, newMonth.length - 1);
+    month = +newMonth.substring(0, newMonth.length - 1);
     monthContent.textContent = `${newMonth}`;
+    mm = month;
     insertDays();
   }
+});
+
+leftBtn.addEventListener("click", (e) => {
+  yearContent.textContent = year - 1;
+  year -= 1;
+  insertDays();
+});
+rightBtn.addEventListener("click", (e) => {
+  yearContent.textContent = year + 1;
+  year += 1;
+  insertDays();
 });
