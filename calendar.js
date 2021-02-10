@@ -1,3 +1,6 @@
+//  todo: year바꾸기 구현
+// todolist 추가 삭제 먼저 구현
+
 let yearContent = document.getElementById("year");
 const monthContent = document.querySelector(".select");
 const dropDown = document.getElementById("month");
@@ -70,7 +73,7 @@ const insertDays = () => {
   }
 
   for (let i = 1; i <= last; i++) {
-    if (i === dd) {
+    if (i === dd && month == mm) {
       template += `<div class="day today">${i}</div>`;
     } else {
       template += `<div class="day">${i}</div>`;
