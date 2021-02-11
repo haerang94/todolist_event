@@ -1,11 +1,12 @@
 :root {
   --carrot: #ff7b54;
+  --navy: #161d6f;
 }
 * {
   box-sizing: border-box;
 }
 body {
-  background: var(--carrot);
+  background: linear-gradient(to right, #14274e, #394867, #2d6187);
 }
 
 .container {
@@ -20,6 +21,7 @@ body {
   background: #fff;
   border-radius: 20px;
   border: 1px solid black;
+  min-height: 400px;
   height: 400px;
   width: 400px;
   padding: 20px;
