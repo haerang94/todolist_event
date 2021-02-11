@@ -7,6 +7,10 @@
 }
 body {
   background: linear-gradient(to right, #14274e, #394867, #2d6187);
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  display: none;
 }
 
 .container {
