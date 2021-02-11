@@ -12,6 +12,9 @@ body {
 ::-webkit-scrollbar {
   display: none;
 }
+i:hover {
+  cursor: pointer;
+}
 
 .container {
   width: 100%;
