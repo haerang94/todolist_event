@@ -6,7 +6,7 @@ const doneList = document.getElementById("donelist");
 
 const background = ["#f1f6f9"];
 const label = ["#14274e"];
-
+// 투두리스트 추가
 const addTodo = () => {
   if (inputContent.value === "") {
     alert("write a task");
@@ -26,6 +26,13 @@ const addTodo = () => {
   inputContent.value = "";
 };
 
+// 투두리스트 삭제
+const removeTodo = (e) => {
+  if (e.target.parentElement.classList.contains("delete-todo")) {
+    e.target.parentElement.parentElement.remove();
+  }
+};
+// 투두리스트 입력
 addTodoIcon.addEventListener("click", (e) => {
   modal.classList.remove("hidden");
 });
@@ -33,4 +40,8 @@ addTodoIcon.addEventListener("click", (e) => {
 // 투두리스트 추가
 closeModalBtn.addEventListener("click", () => {
   addTodo();
+});
+//  투두리스트 삭제 이벤트
+todolist.addEventListener("click", (e) => {
+  removeTodo(e);
 });
