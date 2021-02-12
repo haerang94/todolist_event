@@ -2,6 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="description" content="Todo List" />
+    <meta property="og:title" content="TodoList" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
@@ -13,6 +15,8 @@
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="common.css" />
     <link rel="stylesheet" href="./calendar.css" />
+    <link rel="stylesheet" href="todolist.css" />
+    <link rel="stylesheet" href="modal.css" />
     <title>Todolist Project</title>
   </head>
   <body>
@@ -56,8 +60,67 @@
         </header>
         <div id="date"></div>
       </div>
-      <div id="todolist-wrapper" class="wrapper"></div>
+      <div id="todo-wrapper" class="wrapper">
+        
+        <div class="todo-header">
+          <h1>Todo 할 일</h1>
+          <i class="fas fa-plus" id="add-todo"></i>
+        </div>
+        <div class="overflow-box">
+        <div id="todolist">
+        </div>
+      </div>
+      </div>
+      <div id="done-wrapper" class="wrapper">
+        <div class="todo-header">
+          <h1>Done 완료된 일</h1>
+          <i class="fas fa-plus" id="add-done"></i>
+        </div>
+        <div id="donelist">
+        
+          
+        </div>
+      </div>
+      <div id="checklist-wrapper" class="wrapper">
+        <div class="todo-header">
+          <h1>Done 완료된 일</h1>
+          <i class="fas fa-plus"></i>
+        </div>
+        <div id="donelist"></div>
+      </div>
+    </section>
+    <!-- 모달 -->
+    <section class="modal hidden">
+      <div class="modal-container">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+          <header>
+            <p>Edit 편집하기</p>
+            <i class="far fa-times-circle"></i>
+          </header>
+          <textarea
+            name="todo-textarea"
+            id="todo-textarea"
+            style="width: 100%; height: 200px; resize:none; margin:20px 0;"
+            maxlength="
+                      500"
+            placeholder="투두리스트를 작성하세요! 오늘도 화이팅입니다 ^^"
+            data-textarea="modal"
+          ></textarea>
+          <input
+            type="button"
+            value="저장하기"
+            class="close-modal-btn"
+            data-id="modal-content-update"
+          />
+        </div>
+      </div>
+    </section>
+        </div>
+      </div>
     </section>
     <script src="calendar.js"></script>
+    <script src="modal.js"></script>
+    <script src="todo.js"></script>
   </body>
 </html>

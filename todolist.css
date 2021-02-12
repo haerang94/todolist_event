@@ -1,0 +1,58 @@
+#todo-wrapper,
+#done-wrapper {
+  height: 80%;
+  padding: 20px;
+  width: 300px;
+}
+.overflow-box {
+  height: 95%;
+  margin-bottom: 10px;
+  overflow-y: auto;
+  padding: 10px 0;
+}
+.todo-header {
+  margin-bottom: 10px;
+}
+
+.todo-container {
+  background: #ddd;
+  height: 50%;
+  padding: 20px;
+}
+#todo {
+  border-radius: 20px 20px 0 0;
+  border-bottom: 1px dashed salmon;
+}
+
+#done {
+  border-radius: 0 0 20px 20px;
+}
+
+.todo-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+#todolist {
+  height: 100%;
+}
+
+.todo-flexbox {
+  min-height: 70px;
+  background: #f1f6f9;
+  border-radius: 10px;
+  border-left: 10px solid #14274e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin: 10px 0;
+  flex-wrap: wrap;
+  word-break: break-all;
+}
+
+.todo-item {
+  width: 85%;
+}
+.delete-todo {
+}
