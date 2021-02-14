@@ -98,8 +98,10 @@ const addTodo = (todo = inputContent.value) => {
     return;
   }
   makeTodolist(todo);
-  storeTodo(todo);
-  inputContent.value = "";
+  if (todo === undefined) {
+    storeTodo(todo);
+    inputContent.value = "";
+  }
 };
 // 완료 목록 추가
 const addDone = (done = inputContent.value) => {
@@ -108,8 +110,10 @@ const addDone = (done = inputContent.value) => {
     return;
   }
   makeDonelist(done);
-  storeDone(done);
-  inputContent.value = "";
+  if (done === undefined) {
+    storeDone(done);
+    inputContent.value = "";
+  }
 };
 
 // 투두리스트 삭제
