@@ -5,6 +5,10 @@ const todoList = document.getElementById("todolist");
 const doneList = document.getElementById("donelist");
 const deleteAllTodosBtn = document.querySelector(".delete-all-todos-btn");
 const deleteAllDonesBtn = document.querySelector(".delete-all-dones-btn");
+const todoSearch = document.querySelector(".todo-search");
+const doneSearch = document.querySelector(".done-search");
+const todoSearchBtn = document.getElementById("todo-search-btn");
+const doneSearchBtn = document.getElementById("done-search-btn");
 let isTodo = false;
 let isDone = false;
 
@@ -74,6 +78,37 @@ const removeAllDones = () => {
   }
 };
 
+// 검색 필터링 함수
+const filterTodos = (e) => {
+  const text = e.target.value.toLowerCase();
+  document.querySelectorAll(".todo-item").forEach((task) => {
+    const item = task.firstChild.textContent;
+    if (item.toLowerCase().indexOf(text) !== -1) {
+      task.parentElement.style.display = "flex";
+    } else {
+      task.parentElement.style.display = "none";
+    }
+  });
+};
+const filterDones = (e) => {
+  const text = e.target.value.toLowerCase();
+  document.querySelectorAll(".done-item").forEach((task) => {
+    const item = task.firstChild.textContent;
+    if (item.toLowerCase().indexOf(text) !== -1) {
+      task.parentElement.style.display = "flex";
+    } else {
+      task.parentElement.style.display = "none";
+    }
+  });
+};
+// 검색 버튼 눌렀을 때 (검색창 리셋)
+const resetTodoSearch = () => {
+  todoSearch.value = "";
+};
+const resetDoneSearch = () => {
+  doneSearch.value = "";
+};
+
 // 투두리스트 입력
 addTodoIcon.addEventListener("click", (e) => {
   modal.classList.remove("hidden");
@@ -104,3 +139,12 @@ doneList.addEventListener("click", removeDone);
 deleteAllTodosBtn.addEventListener("click", removeAllTodos);
 // 전체 완료리스트 삭제
 deleteAllDonesBtn.addEventListener("click", removeAllDones);
+
+// 검색 필터링 기능
+todoSearch.addEventListener("keyup", filterTodos);
+
+doneSearch.addEventListener("keyup", filterDones);
+
+// 검색버튼 눌렀을 때
+todoSearchBtn.addEventListener("click", resetTodoSearch);
+doneSearchBtn.addEventListener("click", resetDoneSearch);
