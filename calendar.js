@@ -1,5 +1,3 @@
-// todolist 추가 삭제 먼저 구현
-
 let yearContent = document.getElementById("year");
 const monthContent = document.querySelector(".select");
 const dropDown = document.getElementById("month");
@@ -13,9 +11,12 @@ let mm = today.getMonth() + 1;
 let yyyy = today.getFullYear();
 yearContent.textContent = yyyy;
 monthContent.textContent = `${mm}월`;
+// 이동하는 날짜 year, month, day
 let year = yyyy;
 let month = mm;
-
+let day;
+let todolistDate = `${yyyy}-${mm}-${dd}`;
+// console.log(todolistDate);
 const leap = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 const plain = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
@@ -86,7 +87,6 @@ dropDown.addEventListener("click", (e) => {
     const newMonth = e.target.textContent;
     month = +newMonth.substring(0, newMonth.length - 1);
     monthContent.textContent = `${newMonth}`;
-    mm = month;
     insertDays();
   }
 });
@@ -100,4 +100,13 @@ rightBtn.addEventListener("click", (e) => {
   yearContent.textContent = year + 1;
   year += 1;
   insertDays();
+});
+
+date.addEventListener("click", (e) => {
+  if (e.target.classList.contains("day")) {
+    day = +e.target.textContent;
+    console.log(year, month, day);
+    todolistDate = `${year}-${month}-${day}`;
+    console.log(todolistDate);
+  }
 });

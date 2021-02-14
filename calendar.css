@@ -22,8 +22,13 @@ header {
 .day {
   padding: 2px;
 }
+.day:hover {
+  background: #ff75a0;
+  border-radius: 10px;
+  cursor: pointer;
+}
 
 .today {
-  background: var(--lightCarrot);
+  background: salmon;
   border-radius: 10px;
 }
