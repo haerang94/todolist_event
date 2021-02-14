@@ -32,3 +32,9 @@ header {
   background: salmon;
   border-radius: 10px;
 }
+
+.clicked,
+.clicked:hover {
+  background: var(--lightCarrot);
+  border-radius: 10px;
+}

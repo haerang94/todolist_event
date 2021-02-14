@@ -17,6 +17,7 @@ let month = mm;
 let day;
 let todolistDate = `${yyyy}-${mm}-${dd}`;
 // console.log(todolistDate);
+let clicked;
 const leap = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 const plain = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
@@ -108,5 +109,10 @@ date.addEventListener("click", (e) => {
     console.log(year, month, day);
     todolistDate = `${year}-${month}-${day}`;
     console.log(todolistDate);
+    if (clicked !== undefined) {
+      clicked.classList.remove("clicked");
+    }
+    clicked = e.target;
+    clicked.classList.add("clicked");
   }
 });
