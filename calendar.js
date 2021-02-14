@@ -114,5 +114,6 @@ date.addEventListener("click", (e) => {
     }
     clicked = e.target;
     clicked.classList.add("clicked");
+    getTasks();
   }
 });
