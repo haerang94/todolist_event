@@ -22,6 +22,7 @@ const storeTodo = (todo) => {
   localStorage.setItem("todos", JSON.stringify(todos));
 };
 const storeDone = (done) => {
+  console.log(done);
   dones.push(done);
   localStorage.setItem("dones", JSON.stringify(dones));
 };
@@ -91,29 +92,28 @@ const makeDonelist = (done = inputContent.value) => {
 };
 
 // 투두리스트 추가
-const addTodo = () => {
-  if (inputContent.value === "") {
+const addTodo = (todo = inputContent.value) => {
+  if (todo === undefined && inputContent.value === "") {
     alert("write a task");
     return;
   }
-  makeTodolist();
-  storeTodo(inputContent.value);
+  makeTodolist(todo);
+  storeTodo(todo);
   inputContent.value = "";
 };
 // 완료 목록 추가
-const addDone = () => {
-  if (inputContent.value === "") {
+const addDone = (done = inputContent.value) => {
+  if (done === undefined && inputContent.value === "") {
     alert("write a task");
     return;
   }
-  makeDonelist();
-  storeDone(inputContent.value);
+  makeDonelist(done);
+  storeDone(done);
   inputContent.value = "";
 };
 
 // 투두리스트 삭제
 const removeTodo = (e) => {
-  console.log(e.target);
   if (e.target.classList.contains("delete-todo")) {
     e.target.parentElement.parentElement.remove();
     removeTodoFromLS(e.target.parentElement.parentElement);
@@ -124,6 +124,25 @@ const removeDone = (e) => {
   if (e.target.classList.contains("delete-done")) {
     e.target.parentElement.parentElement.remove();
     removeDoneFromLS(e.target.parentElement.parentElement);
+  }
+};
+// 투두리스트 완료
+const finishTodo = (e) => {
+  if (e.target.classList.contains("finish")) {
+    const text = e.target.parentElement.parentElement.textContent;
+    addDone(text.substring(0, text.length - 4));
+    storeDone(text.substring(0, text.length - 4));
+    removeTodoFromLS(e.target.parentElement.parentElement);
+    e.target.parentElement.parentElement.remove();
+  }
+};
+const finishDone = (e) => {
+  if (e.target.classList.contains("not-finish")) {
+    const text = e.target.parentElement.parentElement.textContent;
+    addTodo(text.substring(0, text.length - 5));
+    storeTodo(text.substring(0, text.length - 5));
+    removeDoneFromLS(e.target.parentElement.parentElement);
+    e.target.parentElement.parentElement.remove();
   }
 };
 // 투두리스트 전체 삭제
@@ -235,7 +254,10 @@ const loadEventListeners = () => {
   deleteAllTodosBtn.addEventListener("click", removeAllTodos);
   // 전체 완료리스트 삭제
   deleteAllDonesBtn.addEventListener("click", removeAllDones);
-
+  // 투두리스트 완료 이벤트
+  todoList.addEventListener("click", finishTodo);
+  // 완료 리스트 미완료 이벤트
+  doneList.addEventListener("click", finishDone);
   // 검색 필터링 기능
   todoSearch.addEventListener("keyup", filterTodos);
 
