@@ -4,6 +4,7 @@ const inputContent = document.getElementById("todo-textarea");
 const todoList = document.getElementById("todolist");
 const doneList = document.getElementById("donelist");
 const deleteAllTodosBtn = document.querySelector(".delete-all-todos-btn");
+const deleteAllDonesBtn = document.querySelector(".delete-all-dones-btn");
 let isTodo = false;
 let isDone = false;
 
@@ -67,7 +68,11 @@ const removeAllTodos = () => {
   }
 };
 // 완료 리스트 전체 삭제
-const removeAllDones = () => {};
+const removeAllDones = () => {
+  while (doneList.firstChild) {
+    doneList.removeChild(doneList.firstChild);
+  }
+};
 
 // 투두리스트 입력
 addTodoIcon.addEventListener("click", (e) => {
@@ -97,3 +102,5 @@ todoList.addEventListener("click", removeTodo);
 doneList.addEventListener("click", removeDone);
 // 전체 투두리스트 삭제
 deleteAllTodosBtn.addEventListener("click", removeAllTodos);
+// 전체 완료리스트 삭제
+deleteAllDonesBtn.addEventListener("click", removeAllDones);

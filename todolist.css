@@ -58,7 +58,8 @@
   width: 85%;
 }
 
-.delete-all-todos-btn {
+.delete-all-todos-btn,
+.delete-all-dones-btn {
   border: none;
   background: salmon;
 }
