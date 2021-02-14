@@ -31,7 +31,7 @@ const removeTodoFromLS = (deleteItem) => {
 
   const text = deleteItem.textContent;
   todos.forEach((todo, idx) => {
-    if (text.substring(0, text.length - 2) === todo) {
+    if (text.substring(0, text.length - 4) === todo) {
       todos.splice(idx, 1);
     }
   });
@@ -41,7 +41,7 @@ const removeDoneFromLS = (deleteItem) => {
   // todo:수정 필요. 같은 투두리스트의 경우 둘다 지워짐
   const text = deleteItem.textContent;
   dones.forEach((done, idx) => {
-    if (text.substring(0, text.length - 2) === done) {
+    if (text.substring(0, text.length - 5) === done) {
       dones.splice(idx, 1);
     }
   });
@@ -62,10 +62,10 @@ const makeTodolist = (todo = inputContent.value) => {
   finish.className = "finish";
   finish.textContent = `완료`;
   iconBox.appendChild(finish);
-  const link = document.createElement("a");
-  link.className = "delete-todo";
-  link.innerHTML = `<i class="far fa-trash-alt"></i>`;
-  iconBox.appendChild(link);
+  const deleteBtn = document.createElement("button");
+  deleteBtn.className = "delete-todo";
+  deleteBtn.textContent = "삭제";
+  iconBox.appendChild(deleteBtn);
   todoList.appendChild(wrapper);
 };
 
@@ -79,14 +79,14 @@ const makeDonelist = (done = inputContent.value) => {
   const iconBox = document.createElement("div");
   iconBox.className = "icon-box";
   wrapper.appendChild(iconBox);
-  const finish = document.createElement("button");
-  finish.className = "finish";
-  finish.textContent = `완료`;
-  iconBox.appendChild(finish);
-  const link = document.createElement("a");
-  link.className = "delete-done";
-  link.innerHTML = `<i class="far fa-trash-alt"></i>`;
-  iconBox.appendChild(link);
+  const notFinish = document.createElement("button");
+  notFinish.className = "not-finish";
+  notFinish.textContent = `미완료`;
+  iconBox.appendChild(notFinish);
+  const deleteBtn = document.createElement("button");
+  deleteBtn.className = "delete-done";
+  deleteBtn.textContent = "삭제";
+  iconBox.appendChild(deleteBtn);
   doneList.appendChild(wrapper);
 };
 
@@ -113,16 +113,17 @@ const addDone = () => {
 
 // 투두리스트 삭제
 const removeTodo = (e) => {
-  if (e.target.parentElement.classList.contains("delete-todo")) {
-    e.target.parentElement.parentElement.parentElement.remove();
-    removeTodoFromLS(e.target.parentElement.parentElement.parentElement);
+  console.log(e.target);
+  if (e.target.classList.contains("delete-todo")) {
+    e.target.parentElement.parentElement.remove();
+    removeTodoFromLS(e.target.parentElement.parentElement);
   }
 };
 // 완료 리스트 삭제
 const removeDone = (e) => {
-  if (e.target.parentElement.classList.contains("delete-done")) {
-    e.target.parentElement.parentElement.parentElement.remove();
-    removeDoneFromLS(e.target.parentElement.parentElement.parentElement);
+  if (e.target.classList.contains("delete-done")) {
+    e.target.parentElement.parentElement.remove();
+    removeDoneFromLS(e.target.parentElement.parentElement);
   }
 };
 // 투두리스트 전체 삭제
