@@ -80,7 +80,8 @@ const removeAllDones = () => {
 
 // 검색 필터링 함수
 const filterTodos = (e) => {
-  const text = e.target.value.toLowerCase();
+  if (e !== undefined && e.keyCode === 13) return;
+  const text = todoSearch.value.toLowerCase();
   document.querySelectorAll(".todo-item").forEach((task) => {
     const item = task.firstChild.textContent;
     if (item.toLowerCase().indexOf(text) !== -1) {
@@ -91,7 +92,8 @@ const filterTodos = (e) => {
   });
 };
 const filterDones = (e) => {
-  const text = e.target.value.toLowerCase();
+  if (e !== undefined && e.keyCode === 13) return;
+  const text = doneSearch.value.toLowerCase();
   document.querySelectorAll(".done-item").forEach((task) => {
     const item = task.firstChild.textContent;
     if (item.toLowerCase().indexOf(text) !== -1) {
@@ -102,11 +104,15 @@ const filterDones = (e) => {
   });
 };
 // 검색 버튼 눌렀을 때 (검색창 리셋)
-const resetTodoSearch = () => {
+const resetTodoSearch = (e) => {
+  e.preventDefault();
   todoSearch.value = "";
+  filterTodos();
 };
-const resetDoneSearch = () => {
+const resetDoneSearch = (e) => {
+  e.preventDefault();
   doneSearch.value = "";
+  filterDones();
 };
 
 // 투두리스트 입력

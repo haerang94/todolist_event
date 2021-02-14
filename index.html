@@ -65,12 +65,14 @@
         <div class="todo-header">
           <h1>Todo 할 일</h1>
           <div>
-            <button class="delete-all-todos-btn">전체 삭제</button>
+            <button class="delete-all-todos-btn" >전체 삭제</button>
           <i class="fas fa-plus" id="add-todo"></i>
         </div>
         </div>
-        <input type="text" class="todo-search"/>
-          <button id="todo-search-btn" class="search-btn">검색</button>
+       
+        <input type="text" class="todo-search" placeholder="필터링 키워드 입력"/>
+          <button id="todo-search-btn" class="search-btn" type="submit">초기화</button>
+        
         <div class="overflow-box">
           
         <div id="todolist">
@@ -85,9 +87,12 @@
           <i class="fas fa-plus" id="add-done"></i>
         </div>
         </div>
-        <input type="text" class="done-search"/>
-          <button id="done-search-btn" class="search-btn">검색</button>
-        <div class="overflow-box">
+    
+        <input type="text" class="done-search"
+        placeholder="필터링 키워드 입력"/>
+          <button id="done-search-btn" class="search-btn" type="submit">초기화</button>
+  
+          <div class="overflow-box">
         <div id="donelist">
         </div>
           
