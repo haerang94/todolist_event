@@ -28,8 +28,10 @@ const storeDone = (done) => {
 // ls에서 삭제
 const removeTodoFromLS = (deleteItem) => {
   // todo:수정 필요. 같은 투두리스트의 경우 둘다 지워짐
+
+  const text = deleteItem.textContent;
   todos.forEach((todo, idx) => {
-    if (deleteItem.textContent === todo) {
+    if (text.substring(0, text.length - 2) === todo) {
       todos.splice(idx, 1);
     }
   });
@@ -37,8 +39,9 @@ const removeTodoFromLS = (deleteItem) => {
 };
 const removeDoneFromLS = (deleteItem) => {
   // todo:수정 필요. 같은 투두리스트의 경우 둘다 지워짐
+  const text = deleteItem.textContent;
   dones.forEach((done, idx) => {
-    if (deleteItem.textContent === done) {
+    if (text.substring(0, text.length - 2) === done) {
       dones.splice(idx, 1);
     }
   });
@@ -52,10 +55,17 @@ const makeTodolist = (todo = inputContent.value) => {
   newTodo.className = "todo-item";
   newTodo.appendChild(document.createTextNode(todo));
   wrapper.appendChild(newTodo);
+  const iconBox = document.createElement("div");
+  iconBox.className = "icon-box";
+  wrapper.appendChild(iconBox);
+  const finish = document.createElement("button");
+  finish.className = "finish";
+  finish.textContent = `완료`;
+  iconBox.appendChild(finish);
   const link = document.createElement("a");
   link.className = "delete-todo";
   link.innerHTML = `<i class="far fa-trash-alt"></i>`;
-  wrapper.appendChild(link);
+  iconBox.appendChild(link);
   todoList.appendChild(wrapper);
 };
 
@@ -66,10 +76,17 @@ const makeDonelist = (done = inputContent.value) => {
   newTodo.className = "done-item";
   newTodo.appendChild(document.createTextNode(done));
   wrapper.appendChild(newTodo);
+  const iconBox = document.createElement("div");
+  iconBox.className = "icon-box";
+  wrapper.appendChild(iconBox);
+  const finish = document.createElement("button");
+  finish.className = "finish";
+  finish.textContent = `완료`;
+  iconBox.appendChild(finish);
   const link = document.createElement("a");
   link.className = "delete-done";
   link.innerHTML = `<i class="far fa-trash-alt"></i>`;
-  wrapper.appendChild(link);
+  iconBox.appendChild(link);
   doneList.appendChild(wrapper);
 };
 
@@ -97,15 +114,15 @@ const addDone = () => {
 // 투두리스트 삭제
 const removeTodo = (e) => {
   if (e.target.parentElement.classList.contains("delete-todo")) {
-    e.target.parentElement.parentElement.remove();
-    removeTodoFromLS(e.target.parentElement.parentElement);
+    e.target.parentElement.parentElement.parentElement.remove();
+    removeTodoFromLS(e.target.parentElement.parentElement.parentElement);
   }
 };
 // 완료 리스트 삭제
 const removeDone = (e) => {
   if (e.target.parentElement.classList.contains("delete-done")) {
-    e.target.parentElement.parentElement.remove();
-    removeDoneFromLS(e.target.parentElement.parentElement);
+    e.target.parentElement.parentElement.parentElement.remove();
+    removeDoneFromLS(e.target.parentElement.parentElement.parentElement);
   }
 };
 // 투두리스트 전체 삭제
@@ -226,6 +243,7 @@ const loadEventListeners = () => {
   // 검색버튼 눌렀을 때
   todoSearchBtn.addEventListener("click", resetTodoSearch);
   doneSearchBtn.addEventListener("click", resetDoneSearch);
+  // 완료 버튼 클릭
 };
 
 loadEventListeners();
