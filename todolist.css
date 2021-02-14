@@ -5,10 +5,11 @@
   width: 300px;
 }
 .overflow-box {
-  height: 95%;
+  height: 85%;
   margin-bottom: 10px;
   overflow-y: auto;
   padding: 10px 0;
+  margin: 10px;
 }
 .todo-header {
   margin-bottom: 10px;
