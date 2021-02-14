@@ -113,12 +113,16 @@ const removeAllTodos = () => {
   while (todoList.firstChild) {
     todoList.removeChild(todoList.firstChild);
   }
+  todos = [];
+  localStorage.setItem("todos", JSON.stringify(todos));
 };
 // 완료 리스트 전체 삭제
 const removeAllDones = () => {
   while (doneList.firstChild) {
     doneList.removeChild(doneList.firstChild);
   }
+  dones = [];
+  localStorage.setItem("dones", JSON.stringify(dones));
 };
 
 // 검색 필터링 함수
