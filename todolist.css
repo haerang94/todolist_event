@@ -33,11 +33,13 @@
   justify-content: space-between;
 }
 
-#todolist {
+#todolist,
+#donelist {
   height: 100%;
 }
 
-.todo-flexbox {
+.todo-flexbox,
+.done-flexbox {
   min-height: 70px;
   background: #f1f6f9;
   border-radius: 10px;
@@ -51,8 +53,12 @@
   word-break: break-all;
 }
 
-.todo-item {
+.todo-item,
+.done-item {
   width: 85%;
 }
-.delete-todo {
+
+.delete-all-todos-btn {
+  border: none;
+  background: salmon;
 }
