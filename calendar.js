@@ -86,7 +86,7 @@ insertDays();
 // 클릭한 날짜의 투두리스트 보여주는 함수
 const changeDateText = () => {
   const dayOfWeek = week[new Date(todolistDate).getDay()];
-  document.getElementById("todolistDate").innerText = `${year} ${
+  document.getElementById("todolistDate").innerText = `${year}년 ${
     month < 10 ? "0" + month : month
   }월 ${day < 10 ? "0" + day : day}일 ${dayOfWeek}요일 투두리스트`;
 };
