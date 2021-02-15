@@ -124,5 +124,6 @@ date.addEventListener("click", (e) => {
     clicked.classList.add("clicked");
     getTasks();
     changeDateText();
+    displayCnt();
   }
 });

@@ -19,13 +19,12 @@ const label = ["#14274e"];
 
 // 투두리스트 저장
 const storeTodo = (todo) => {
-  console.log("저장", todolistDate);
   if (todo !== undefined) {
     todos.push(todo);
   }
   currentDate["todos"] = todos;
   localStorage.setItem(todolistDate, JSON.stringify(currentDate));
-  // localStorage.setItem("todos", JSON.stringify(todos));
+  displayCnt();
 };
 const storeDone = (done) => {
   if (done !== undefined) {
@@ -33,7 +32,7 @@ const storeDone = (done) => {
   }
   currentDate["dones"] = dones;
   localStorage.setItem(todolistDate, JSON.stringify(currentDate));
-  // localStorage.setItem("dones", JSON.stringify(dones));
+  displayCnt();
 };
 // ls에서 삭제
 const removeTodoFromLS = (deleteItem) => {
@@ -47,6 +46,7 @@ const removeTodoFromLS = (deleteItem) => {
   });
   currentDate["todos"] = todos;
   localStorage.setItem(todolistDate, JSON.stringify(currentDate));
+  displayCnt();
 };
 const removeDoneFromLS = (deleteItem) => {
   // todo:수정 필요. 같은 투두리스트의 경우 둘다 지워짐
@@ -58,6 +58,7 @@ const removeDoneFromLS = (deleteItem) => {
   });
   currentDate["dones"] = dones;
   localStorage.setItem(todolistDate, JSON.stringify(currentDate));
+  displayCnt();
 };
 // 재사용성 위해: todo or inputContent.value
 const makeTodolist = (todo = inputContent.value) => {
@@ -168,6 +169,7 @@ const removeAllTodos = () => {
   todos = [];
   currentDate["todos"] = todos;
   localStorage.setItem(todolistDate, JSON.stringify(currentDate));
+  displayCnt();
 };
 // 완료 리스트 전체 삭제
 const removeAllDones = () => {
@@ -177,6 +179,7 @@ const removeAllDones = () => {
   dones = [];
   currentDate["dones"] = dones;
   localStorage.setItem(todolistDate, JSON.stringify(currentDate));
+  displayCnt();
 };
 
 // 검색 필터링 함수
@@ -239,7 +242,7 @@ closeModalBtn.addEventListener("click", () => {
 });
 
 const getTasks = () => {
-  console.log(todolistDate);
+  // console.log(todolistDate);
   todoList.innerHTML = "";
   doneList.innerHTML = "";
   if (localStorage.getItem(todolistDate) === null) {
