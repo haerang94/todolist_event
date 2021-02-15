@@ -1,11 +1,20 @@
+@font-face {
+  font-family: "WandohopeB";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/WandohopeB.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 :root {
   --carrot: #ff7b54;
   --navy: #161d6f;
 }
 * {
   box-sizing: border-box;
+  font-family: "WandohopeB", Arial, Helvetica, sans-serif;
 }
 body {
+  font-family: "WandohopeB", Arial, Helvetica, sans-serif;
   min-width: 1200px;
   background: linear-gradient(to right, #14274e, #394867, #2d6187);
   /* -ms-overflow-style: none; */
