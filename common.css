@@ -16,7 +16,17 @@
 body {
   font-family: "WandohopeB", Arial, Helvetica, sans-serif;
   min-width: 1200px;
-  background: linear-gradient(to right, #14274e, #394867, #2d6187);
+  /* background: linear-gradient(to right, #14274e, #394867, #2d6187); */
+  /* background: linear-gradient(to right, #a685e2, #c9cbff, #a7c5eb, #eff8ff); */
+
+  background: linear-gradient(
+    to right,
+    #6155a6,
+    #6155a6,
+    #a685e2,
+    #da9ff9,
+    #ffabe1
+  );
   /* -ms-overflow-style: none; */
   height: 100vh;
 }
