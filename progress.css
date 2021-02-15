@@ -1,0 +1,21 @@
+.progress-bar {
+  position: relative;
+  height: 20px;
+  width: 100%;
+}
+
+.progress-bar {
+  background: plum;
+  margin: 10px 0;
+}
+
+.progress {
+  position: absolute;
+  top: 5px;
+  left: 0;
+  height: 10px;
+  background: mediumpurple;
+  line-height: 10px;
+  text-align: center;
+  width: 10%;
+}

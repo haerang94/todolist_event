@@ -66,6 +66,7 @@ header h2 {
 .dropdown {
   width: 45%;
   position: relative;
+  z-index: 1;
 }
 
 .dropdown-select {
@@ -94,6 +95,7 @@ header h2 {
   cursor: focus;
   overflow-y: auto;
   height: 150px;
+  border: 1px solid black;
 }
 
 .dropdown-list__item {
