@@ -65,11 +65,16 @@
         <div class="todo-header">
           <h1>Todo 할 일</h1>
           <div>
-            <button class="delete-all-todos-btn">전체 삭제</button>
+            <button class="delete-all-todos-btn" >전체 삭제</button>
           <i class="fas fa-plus" id="add-todo"></i>
         </div>
         </div>
+       
+        <input type="text" class="todo-search" placeholder="필터링 키워드 입력"/>
+          <button id="todo-search-btn" class="search-btn" type="submit">초기화</button>
+        
         <div class="overflow-box">
+          
         <div id="todolist">
         </div>
       </div>
@@ -77,21 +82,29 @@
       <div id="done-wrapper" class="wrapper">
         <div class="todo-header">
           <h1>Done 완료된 일</h1>
+          <div>
+          <button class="delete-all-dones-btn">전체 삭제</button>
           <i class="fas fa-plus" id="add-done"></i>
         </div>
-        <div class="overflow-box">
+        </div>
+    
+        <input type="text" class="done-search"
+        placeholder="필터링 키워드 입력"/>
+          <button id="done-search-btn" class="search-btn" type="submit">초기화</button>
+  
+          <div class="overflow-box">
         <div id="donelist">
         </div>
           
         </div>
       </div>
-      <div id="checklist-wrapper" class="wrapper">
+      <!-- <div id="checklist-wrapper" class="wrapper">
         <div class="todo-header">
           <h1>Done 완료된 일</h1>
           <i class="fas fa-plus"></i>
         </div>
         <div id="donelist"></div>
-      </div>
+      </div> -->
     </section>
     <!-- 모달 -->
     <section class="modal hidden">

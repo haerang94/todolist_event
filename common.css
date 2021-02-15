@@ -26,12 +26,13 @@ i:hover {
 
 .wrapper {
   background: #fff;
-  border-radius: 20px;
+  border-radius: 20px 0 0 0;
   border: 1px solid black;
   min-height: 400px;
   height: 400px;
   width: 400px;
   padding: 20px;
+  box-shadow: 2px 2px 5px #312c51;
 }
 
 #dropdown-wrapper {
