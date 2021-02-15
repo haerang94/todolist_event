@@ -14,8 +14,22 @@
   top: 5px;
   left: 0;
   height: 10px;
-  background: mediumpurple;
+  /* background: mediumpurple; */
+  background: beige;
   line-height: 10px;
   text-align: center;
   width: 10%;
+}
+
+#plant {
+  width: 260px;
+  height: 300px;
+}
+/* .plant-img {
+  width: 150px;
+  height: 180px;
+} */
+img {
+  width: 120px;
+  height: 130px;
 }
