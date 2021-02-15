@@ -19,6 +19,7 @@ const label = ["#14274e"];
 
 // 투두리스트 저장
 const storeTodo = (todo) => {
+  console.log("저장", todolistDate);
   todos.push(todo);
   currentDate["todos"] = todos;
   localStorage.setItem(todolistDate, JSON.stringify(currentDate));
@@ -98,16 +99,16 @@ const makeDonelist = (done = inputContent.value) => {
 };
 
 // 투두리스트 추가
+// input값이 없을 때는 todolit추가할 때
+// 있을 때는 미완료에서 완료로 이동할 때
 const addTodo = (todo = inputContent.value) => {
   if (todo === undefined && inputContent.value === "") {
     alert("write a task");
     return;
   }
   makeTodolist(todo);
-  if (todo === undefined) {
-    storeTodo(todo);
-    inputContent.value = "";
-  }
+  storeTodo(todo);
+  inputContent.value = "";
 };
 // 완료 목록 추가
 const addDone = (done = inputContent.value) => {
@@ -116,10 +117,8 @@ const addDone = (done = inputContent.value) => {
     return;
   }
   makeDonelist(done);
-  if (done === undefined) {
-    storeDone(done);
-    inputContent.value = "";
-  }
+  storeDone(done);
+  inputContent.value = "";
 };
 
 // 투두리스트 삭제
