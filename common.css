@@ -8,6 +8,9 @@
 :root {
   --carrot: #ff7b54;
   --navy: #161d6f;
+  --darkViolet: #6155a6;
+  --lightViolet: #a685e2;
+  --pink: #ffabe1;
 }
 * {
   box-sizing: border-box;
@@ -16,8 +19,7 @@
 body {
   font-family: "WandohopeB", Arial, Helvetica, sans-serif;
   min-width: 1200px;
-  /* background: linear-gradient(to right, #14274e, #394867, #2d6187); */
-  /* background: linear-gradient(to right, #a685e2, #c9cbff, #a7c5eb, #eff8ff); */
+  color: var(--navy);
 
   background: linear-gradient(
     to right,
@@ -121,7 +123,7 @@ header h2 {
 
 .dropdown-list__item:hover {
   cursor: pointer;
-  background: salmon;
+  background: #6155a6;
   color: #fff;
 }
 

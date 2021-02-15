@@ -2,10 +2,11 @@
   position: relative;
   height: 20px;
   width: 90%;
+  border-radius: 5px;
 }
 
 .progress-bar {
-  background: plum;
+  background: var(--navy);
   margin: 10px 0;
 }
 
@@ -14,21 +15,32 @@
   top: 5px;
   left: 0;
   height: 10px;
-  /* background: mediumpurple; */
   background: beige;
   line-height: 10px;
   text-align: center;
   width: 10%;
+  border-radius: 5px;
+  color: black;
+  font-weight: bold;
+}
+
+.plant-img {
+  border-radius: 50%;
+  /* background: black; */
 }
 
 #plant {
   min-width: 260px;
   min-height: 400px;
   /* background: none; */
+  border: 1px solid var(--navy);
+  border-radius: 20px;
+  box-shadow: 2px 2px 5px #312c51;
 }
 
 img {
   width: 240px;
   height: 250px;
-  border-radius: 10px;
+  border-radius: 50%;
+  border: 0.5px solid var(--navy);
 }

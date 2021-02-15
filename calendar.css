@@ -24,18 +24,20 @@
   padding: 5px;
 }
 .day:hover {
-  background: #ff75a0;
+  background: #a685e2;
   border-radius: 10px;
   cursor: pointer;
+  color: #fff;
 }
 
 .today {
-  background: salmon;
+  background: #ffabe1;
   border-radius: 10px;
+  color: var(--navy);
 }
 
 .clicked,
 .clicked:hover {
-  background: var(--lightCarrot);
+  background: #da9ff9;
   border-radius: 10px;
 }

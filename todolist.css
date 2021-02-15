@@ -37,7 +37,7 @@
 .todo-flexbox,
 .done-flexbox {
   min-height: 70px;
-  background: #f1f6f9;
+  background: #fff;
   border-radius: 5px 0 0 5px;
   border-left: 10px solid #14274e;
   display: flex;
