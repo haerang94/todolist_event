@@ -18,11 +18,18 @@ const proverbList = [
 ];
 
 document.addEventListener("DOMContentLoaded", () => {
-  console.log(proverbList.length);
   proverb.innerText = "행복은 스스로 찾는 것이다.";
   setInterval(() => {
+    proverb.classList.add("appear");
+    setTimeout(() => {
+      proverb.classList.remove("disappear");
+    }, 1001);
     let num = Math.floor(Math.random() * proverbList.length);
-    console.log(num);
-    proverb.innerText = proverbList[num];
+
+    proverb.classList.add("disappear");
+    setTimeout(() => {
+      proverb.classList.remove("appear");
+      proverb.innerText = proverbList[num];
+    }, 1001);
   }, 3000);
 });
