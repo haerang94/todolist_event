@@ -18,6 +18,7 @@ const flowers = [
   "https://images.unsplash.com/photo-1491246176266-6bf18143d71d?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1050&q=80",
 ];
 const displayCnt = () => {
+  plantImg.src = "./images/one.png";
   comment.innerText = "싹이 텄어요. 시작이 반입니다.";
   numOfComplete.innerText = dones.length;
   numOfTotal.innerText = dones.length + todos.length;
