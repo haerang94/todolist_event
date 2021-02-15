@@ -31,5 +31,5 @@ document.addEventListener("DOMContentLoaded", () => {
       proverb.classList.remove("appear");
       proverb.innerText = proverbList[num];
     }, 1001);
-  }, 3000);
+  }, 4000);
 });
