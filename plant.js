@@ -2,6 +2,7 @@ const numOfComplete = document.getElementById("completeNum");
 const numOfTotal = document.getElementById("totalNum");
 const progress = document.querySelector(".progress");
 const plantImg = document.getElementsByTagName("img")[0];
+const comment = document.getElementById("comment");
 const flowers = [
   "https://images.unsplash.com/photo-1495231916356-a86217efff12?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8Zmxvd2VyfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
   "https://images.unsplash.com/photo-1470509037663-253afd7f0f51?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NXx8Zmxvd2VyfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60",
@@ -26,12 +27,17 @@ const displayCnt = () => {
     console.log(len);
     if (len < 30) {
       plantImg.src = "./images/one.png";
+      comment.innerText = "싹이 텄어요. 시작이 반입니다.";
     } else if (len < 60) {
       plantImg.src = "./images/two.png";
+      comment.innerText = "줄기가 자랐네요. 같이 성장하고 있어요.";
     } else if (len < 90) {
       plantImg.src = "./images/four.png";
+      comment.innerText = "잎이 많아졌어요.\n열심히 하는 당신이 멋있습니다.";
     } else {
       plantImg.src = flowers[Math.floor(Math.random() * flowers.length)];
+      comment.innerText =
+        "당신이 노력이 결실을 맺어\n 꽃이 피어났습니다. 수고하셨습니다.";
     }
     progress.innerText = `${len}%`;
     progress.style.width = `${len}%`;
