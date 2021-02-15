@@ -1,24 +1,94 @@
+@font-face {
+  font-family: "WandohopeB";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/WandohopeB.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
 :root {
   --carrot: #ff7b54;
   --navy: #161d6f;
+  --darkViolet: #6155a6;
+  --lightViolet: #a685e2;
+  --pink: #ffabe1;
 }
 * {
   box-sizing: border-box;
+  font-family: "WandohopeB", Arial, Helvetica, sans-serif;
 }
 body {
-  background: linear-gradient(to right, #14274e, #394867, #2d6187);
-  -ms-overflow-style: none;
+  font-family: "WandohopeB", Arial, Helvetica, sans-serif;
+  min-width: 1200px;
+  color: var(--navy);
+
+  background: linear-gradient(
+    to right,
+    #6155a6,
+    #6155a6,
+    #a685e2,
+    #da9ff9,
+    #ffabe1
+  );
+  /* -ms-overflow-style: none; */
+  height: 100vh;
 }
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   display: none;
-}
+} */
 i:hover {
   cursor: pointer;
+}
+header {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  color: #fff;
+}
+
+.appear {
+  animation: fade-in 1s;
+  animation-fill-mode: forwards;
+}
+.disappear {
+  animation: fade-out 1s;
+  animation-fill-mode: forwards;
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+header h2:nth-of-type(1) {
+  position: absolute;
+  font-size: 32px;
+  top: 50px;
+  left: 5%;
+  text-shadow: 2px 2px 2px var(--navy);
+}
+header h2:nth-of-type(2) {
+  position: absolute;
+  top: 50px;
+  right: 8%;
+  font-size: 32px;
+  text-shadow: 2px 2px 2px var(--darkViolet);
 }
 
 .container {
   width: 100%;
-  height: 100vh;
+  height: -webkit-calc(100% - 180px);
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -29,8 +99,8 @@ i:hover {
   border-radius: 20px 0 0 0;
   border: 1px solid black;
   min-height: 400px;
-  height: 400px;
-  width: 400px;
+  height: 450px;
+  width: 450px;
   padding: 20px;
   box-shadow: 2px 2px 5px #312c51;
 }
@@ -43,6 +113,7 @@ i:hover {
 .dropdown {
   width: 45%;
   position: relative;
+  z-index: 1;
 }
 
 .dropdown-select {
@@ -71,6 +142,7 @@ i:hover {
   cursor: focus;
   overflow-y: auto;
   height: 150px;
+  border: 1px solid black;
 }
 
 .dropdown-list__item {
@@ -86,6 +158,19 @@ i:hover {
 
 .dropdown-list__item:hover {
   cursor: pointer;
-  background: salmon;
+  background: #6155a6;
   color: #fff;
+}
+
+.num-of-tasks {
+  display: flex;
+  margin-bottom: 5px;
+}
+.num-of-tasks * {
+  margin: 0 2px;
+}
+
+button:hover,
+button:active {
+  cursor: pointer;
 }
