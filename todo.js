@@ -20,13 +20,17 @@ const label = ["#14274e"];
 // 투두리스트 저장
 const storeTodo = (todo) => {
   console.log("저장", todolistDate);
-  todos.push(todo);
+  if (todo !== undefined) {
+    todos.push(todo);
+  }
   currentDate["todos"] = todos;
   localStorage.setItem(todolistDate, JSON.stringify(currentDate));
   // localStorage.setItem("todos", JSON.stringify(todos));
 };
 const storeDone = (done) => {
-  dones.push(done);
+  if (done !== undefined) {
+    dones.push(done);
+  }
   currentDate["dones"] = dones;
   localStorage.setItem(todolistDate, JSON.stringify(currentDate));
   // localStorage.setItem("dones", JSON.stringify(dones));
@@ -106,8 +110,10 @@ const addTodo = (todo = inputContent.value) => {
     alert("write a task");
     return;
   }
+
   makeTodolist(todo);
   storeTodo(todo);
+
   inputContent.value = "";
 };
 // 완료 목록 추가
@@ -116,8 +122,10 @@ const addDone = (done = inputContent.value) => {
     alert("write a task");
     return;
   }
+
   makeDonelist(done);
   storeDone(done);
+
   inputContent.value = "";
 };
 
@@ -140,7 +148,6 @@ const finishTodo = (e) => {
   if (e.target.classList.contains("finish")) {
     const text = e.target.parentElement.parentElement.textContent;
     addDone(text.substring(0, text.length - 4));
-    storeDone(text.substring(0, text.length - 4));
     removeTodoFromLS(e.target.parentElement.parentElement);
     e.target.parentElement.parentElement.remove();
   }
@@ -149,7 +156,6 @@ const finishDone = (e) => {
   if (e.target.classList.contains("not-finish")) {
     const text = e.target.parentElement.parentElement.textContent;
     addTodo(text.substring(0, text.length - 5));
-    storeTodo(text.substring(0, text.length - 5));
     removeDoneFromLS(e.target.parentElement.parentElement);
     e.target.parentElement.parentElement.remove();
   }
