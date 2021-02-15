@@ -6,7 +6,9 @@ const displayCnt = () => {
   numOfComplete.innerText = dones.length;
   numOfTotal.innerText = dones.length + todos.length;
   if (todos.length + dones.length !== 0) {
-    const len = (dones.length / (dones.length + todos.length)) * 100;
+    const len = Math.round(
+      (dones.length / (dones.length + todos.length)) * 100
+    );
     progress.innerText = `${len}%`;
     progress.style.width = `${len}%`;
   }
