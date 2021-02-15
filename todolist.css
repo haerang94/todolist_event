@@ -1,6 +1,6 @@
 #todo-wrapper,
 #done-wrapper {
-  height: 70%;
+  height: 80%;
   padding: 20px;
   width: 300px;
 }
@@ -10,6 +10,9 @@
   overflow-y: auto;
   padding: 10px 0;
   margin: 10px;
+}
+.overflow-box::-webkit-scrollbar {
+  display: none;
 }
 .todo-header {
   margin-bottom: 10px;

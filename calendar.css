@@ -1,7 +1,7 @@
 :root {
   --lightCarrot: #ffb26b;
 }
-header {
+#calendar-header {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
@@ -10,6 +10,7 @@ header {
   margin: 10px 0;
   justify-items: center;
   gap: 2px;
+  color: black;
 }
 
 #date {

@@ -14,12 +14,13 @@ monthContent.textContent = `${mm}월`;
 // 이동하는 날짜 year, month, day
 let year = yyyy;
 let month = mm;
-let day;
+let day = dd;
 let todolistDate = `${yyyy}-${mm}-${dd}`;
 // console.log(todolistDate);
 let clicked;
 const leap = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 const plain = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+const week = ["일", "월", "화", "수", "목", "금", "토"];
 
 //  윤년인지 체크
 const isLeapYear = (year) => {
@@ -82,6 +83,15 @@ const insertDays = () => {
 };
 
 insertDays();
+// 클릭한 날짜의 투두리스트 보여주는 함수
+const changeDateText = () => {
+  const dayOfWeek = week[new Date(todolistDate).getDay()];
+  document.getElementById("todolistDate").innerText = `${year} ${
+    month < 10 ? "0" + month : month
+  }월 ${day < 10 ? "0" + day : day}일 ${dayOfWeek}요일 투두리스트`;
+};
+
+document.addEventListener("DOMContentLoaded", changeDateText);
 
 dropDown.addEventListener("click", (e) => {
   if (e.target.classList.contains("dropdown-list__item")) {
@@ -106,14 +116,13 @@ rightBtn.addEventListener("click", (e) => {
 date.addEventListener("click", (e) => {
   if (e.target.classList.contains("day")) {
     day = +e.target.textContent;
-    console.log(year, month, day);
     todolistDate = `${year}-${month}-${day}`;
-    console.log(todolistDate);
     if (clicked !== undefined) {
       clicked.classList.remove("clicked");
     }
     clicked = e.target;
     clicked.classList.add("clicked");
     getTasks();
+    changeDateText();
   }
 });
