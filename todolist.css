@@ -59,7 +59,18 @@
 .delete-all-todos-btn,
 .delete-all-dones-btn {
   border: none;
-  background: salmon;
+  background: #6155a6;
+  color: #fff;
+  border-radius: 5px;
+  height: 25px;
+}
+
+.search-btn {
+  background: #6155a6;
+  color: #fff;
+  height: 25px;
+  border-radius: 5px;
+  border: none;
 }
 
 .square {

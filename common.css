@@ -134,3 +134,9 @@ header h2 {
 .num-of-tasks * {
   margin: 0 2px;
 }
+
+button:hover,
+button:active {
+  cursor: pointer;
+}
+
