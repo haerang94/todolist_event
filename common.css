@@ -114,3 +114,11 @@ header h2 {
   background: salmon;
   color: #fff;
 }
+
+.num-of-tasks {
+  display: flex;
+  margin-bottom: 5px;
+}
+.num-of-tasks * {
+  margin: 0 2px;
+}
